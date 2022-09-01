@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../services/dio_client.dart';
 import '../services/json_placeholder_service.dart';
+import '../services/prefs_service.dart';
 import '../store/home_page_controller.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -27,6 +28,15 @@ class _DetailsPageState extends State<DetailsPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 43, 43, 43),
+        actions: [
+          IconButton(
+              onPressed: () {
+                PrefsService.logout();
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil('/login', (route) => true);
+              },
+              icon: const Icon(Icons.logout_outlined)),
+        ],
         title: const Text('Detalhes das Notícias'),
         centerTitle: true,
       ),
