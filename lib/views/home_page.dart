@@ -36,31 +36,28 @@ class _HomePageState extends State<HomePage> {
       body: Observer(
         builder: (_) {
           return Center(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.50,
-              child: ListView.separated(
-                itemCount: controller.posts.length,
-                itemBuilder: (context, index) {
-                  //pegando todos os dados vindos do controller
-                  final post = controller.posts[index];
-                  return ListTile(
-                    leading: Text(post.id.toString()),
-                    trailing: const Icon(Icons.arrow_forward),
-                    title: Text(
-                      post.title,
-                      style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                    onTap: () => Navigator.of(context).pushNamed('/details'),
-                    // subtitle: Text(post.body,
-                    //     style: const TextStyle(
-                    //         fontSize: 14, fontStyle: FontStyle.italic)),
-                  );
-                },
-                separatorBuilder: (_, __) {
-                  return const Divider();
-                },
-              ),
+            child: ListView.separated(
+              itemCount: controller.posts.length,
+              itemBuilder: (context, index) {
+                //pegando todos os dados vindos do controller
+                final post = controller.posts[index];
+                return ListTile(
+                  leading: Text(post.id.toString()),
+                  trailing: const Icon(Icons.arrow_forward),
+                  title: Text(
+                    post.title,
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  onTap: () => Navigator.of(context).pushNamed('/details'),
+                  // subtitle: Text(post.body,
+                  //     style: const TextStyle(
+                  //         fontSize: 14, fontStyle: FontStyle.italic)),
+                );
+              },
+              separatorBuilder: (_, __) {
+                return const Divider();
+              },
             ),
           );
         },

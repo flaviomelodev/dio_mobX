@@ -5,13 +5,14 @@ class CustomTextLogin extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final Widget prefixIcon;
-  const CustomTextLogin(
-      {Key? key,
-      required this.onChaged,
-      this.obscureText = false,
-      required this.hintText,
-      required this.prefixIcon})
-      : super(key: key);
+
+  const CustomTextLogin({
+    Key? key,
+    required this.onChaged,
+    this.obscureText = false,
+    required this.hintText,
+    required this.prefixIcon,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,7 @@ class CustomTextLogin extends StatelessWidget {
         borderRadius: BorderRadius.circular(40),
         child: TextFormField(
           decoration: InputDecoration(
+            constraints: const BoxConstraints(maxWidth: double.infinity),
             border: InputBorder.none,
             hintText: hintText,
             contentPadding: const EdgeInsets.only(top: 14),
